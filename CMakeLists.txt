@@ -23,6 +23,8 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+install(DIRECTORY resources/config
+  DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY resources/launch
   DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY resources/models

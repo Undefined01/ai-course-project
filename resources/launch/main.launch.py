@@ -16,6 +16,7 @@ def generate_launch_description():
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    launch_rviz = LaunchConfiguration('rviz', default='false')
     world_file_name = LaunchConfiguration('world', default='hexagon.world')
     model_name = LaunchConfiguration('model', default='burger')
     x_pose = LaunchConfiguration('x_pose', default='2.0')
@@ -60,6 +61,15 @@ def generate_launch_description():
             'y_pose': y_pose
         }.items()
     )
+    
+    cartographer_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            path.join(launch_file_dir, 'cartographer.launch.py')
+        ),
+        launch_arguments={
+            'rviz': launch_rviz,
+        }.items()
+    )
 
     ld = LaunchDescription([
     	declare_world_file_cmd,
@@ -67,6 +77,7 @@ def generate_launch_description():
         gzclient_cmd,
         robot_state_publisher_cmd,
         spawn_turtlebot_cmd,
+        cartographer_cmd,
     ])
 
 
