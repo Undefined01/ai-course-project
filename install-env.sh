@@ -6,5 +6,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 sudo apt upgrade
 sudo apt install -y build-essential cmake python3-colcon-common-extensions
-sudo apt install -y ros-$ROS_DISTRO-desktop ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-cartographer ros-$ROS_DISTRO-turtlebot3 ros-$ROS_DISTRO-turtlebot3-gazebo
+sudo apt install -y ros-$ROS_DISTRO-desktop ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-cartographer \
+	ros-$ROS_DISTRO-turtlebot3 ros-$ROS_DISTRO-turtlebot3-gazebo ros-$ROS_DISTRO-turtlebot3-teleop ros-$ROS_DISTRO-turtlebot3-cartographer
 
